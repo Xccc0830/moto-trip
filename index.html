@@ -16,6 +16,7 @@
         .dot { position: absolute; left: -1.5rem; top: 0.4rem; width: 1rem; height: 1rem; background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000; z-index: 10; }
         .map-card { @apply block w-full border border-zinc-100 p-4 rounded-xl active:bg-zinc-50 transition-all flex justify-between items-center mt-2; }
         .stay-card { border: 2px solid #000 !important; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        h3 { @apply text-[10px] font-black tracking-widest text-zinc-400 uppercase mb-4 mt-8; }
     </style>
 </head>
 <body class="pb-32">
@@ -25,117 +26,113 @@
         <p class="text-[10px] tracking-[0.4em] text-zinc-400 font-bold uppercase mt-1">Jan 12 - Jan 16 / 2026</p>
     </header>
 
-    <main class="max-w-xl mx-auto px-8 space-y-12">
+    <main class="max-w-xl mx-auto px-8">
 
-        <section class="bg-zinc-950 text-white p-6 rounded-3xl shadow-xl">
-            <h2 class="text-[10px] font-black tracking-widest text-zinc-500 mb-4 uppercase text-center">Expense Tracker</h2>
+        <section class="bg-zinc-950 text-white p-6 rounded-3xl shadow-xl mb-16">
+            <h2 class="text-[10px] font-black tracking-widest text-zinc-500 mb-4 uppercase text-center">Cloud Expense Tracker</h2>
             <div class="grid grid-cols-2 gap-3">
-                <a href="https://forms.gle/Sxj9ezWdpUAhSJKt6" target="_blank" class="bg-white text-black text-center py-4 rounded-xl font-bold text-sm active:scale-95 transition-transform">
-                    ➕ 記帳
-                </a>
-                <a href="https://docs.google.com/spreadsheets/d/1aC7P5AMrlJDDyHA8Q3r26nRu6PUWkroCHIeJFFb8D9I/edit?usp=sharing" target="_blank" class="border border-zinc-700 text-zinc-400 text-center py-4 rounded-xl text-sm active:bg-zinc-800">
-                    📊 查看明細
-                </a>
+                <a href="https://forms.gle/Sxj9ezWdpUAhSJKt6" target="_blank" class="bg-white text-black text-center py-4 rounded-xl font-bold text-sm active:scale-95">➕ 記帳</a>
+                <a href="https://docs.google.com/spreadsheets/d/1aC7P5AMrlJDDyHA8Q3r26nRu6PUWkroCHIeJFFb8D9I/edit?usp=sharing" target="_blank" class="border border-zinc-700 text-zinc-400 text-center py-4 rounded-xl text-sm active:bg-zinc-800">📊 查帳</a>
             </div>
         </section>
 
-        <section>
-            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-10 text-center">01 / Full Itinerary</h2>
+        <section class="mb-20">
+            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-10 text-center italic">Route Navigation</h2>
             <div class="timeline-container">
                 <div class="timeline-line"></div>
-
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 01 / 台北 ➔ 台中</p>
-                    <a href="https://www.google.com/maps/search/汶水老街" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">1. 汶水老街</p><p class="text-[10px] text-zinc-400">台3線休息站</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/龍騰斷橋" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">2. 龍騰斷橋</p><p class="text-[10px] text-zinc-400">經典拍照點</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/拓程商旅" target="_blank" class="map-card stay-card">
-                        <div><p class="text-sm font-bold">3. 拓程商旅</p><p class="text-[10px] text-zinc-900 font-bold">台中住宿點</p></div><span class="text-xs text-zinc-900 font-bold">STAY</span>
-                    </a>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 01 / Taipei - Taichung</p>
+                    <a href="https://www.google.com/maps/search/汶水老街" target="_blank" class="map-card"><div><p class="text-sm font-bold">1. 汶水老街</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/龍騰斷橋" target="_blank" class="map-card"><div><p class="text-sm font-bold">2. 龍騰斷橋</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/拓程商旅" target="_blank" class="map-card stay-card"><div><p class="text-sm font-bold">3. 拓程商旅</p></div><span class="text-xs text-zinc-900 font-bold italic">HOTEL</span></a>
                 </div>
-
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 02 / 台中 ➔ 高雄</p>
-                    <a href="https://www.google.com/maps/search/嘉義阿宏師火雞肉飯" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">1. 阿宏師火雞肉飯</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/文章牛肉湯" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">2. 文章牛肉湯</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/佑煦行旅" target="_blank" class="map-card stay-card">
-                        <div><p class="text-sm font-bold">3. 佑煦行旅</p></div><span class="text-xs text-zinc-900 font-bold">STAY</span>
-                    </a>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 02 / Taichung - Kaohsiung</p>
+                    <a href="https://www.google.com/maps/search/嘉義阿宏師火雞肉飯" target="_blank" class="map-card"><div><p class="text-sm font-bold">1. 阿宏師火雞肉飯</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/文章牛肉湯" target="_blank" class="map-card"><div><p class="text-sm font-bold">2. 文章牛肉湯</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/佑煦行旅" target="_blank" class="map-card stay-card"><div><p class="text-sm font-bold">3. 佑煦行旅</p></div><span class="text-xs text-zinc-900 font-bold italic">HOTEL</span></a>
                 </div>
-
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 03 / 高雄 ➔ 台東</p>
-                    <a href="https://www.google.com/maps/search/小杜包子" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">1. 小杜包子</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/多良車站" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">2. 多良車站</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/嶼光智能旅宿" target="_blank" class="map-card stay-card">
-                        <div><p class="text-sm font-bold">3. 嶼光智能旅宿</p></div><span class="text-xs text-zinc-900 font-bold">STAY</span>
-                    </a>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 03 / Kaohsiung - Taitung</p>
+                    <a href="https://www.google.com/maps/search/小杜包子" target="_blank" class="map-card"><div><p class="text-sm font-bold">1. 小杜包子</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/多良車站" target="_blank" class="map-card"><div><p class="text-sm font-bold">2. 多良車站</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/嶼光智能旅宿" target="_blank" class="map-card stay-card"><div><p class="text-sm font-bold">3. 嶼光智能旅宿</p></div><span class="text-xs text-zinc-900 font-bold italic">HOTEL</span></a>
                 </div>
-
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 04 / 台東 ➔ 花蓮</p>
-                    <a href="https://www.google.com/maps/search/東河包子" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">1. 東河包子</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/三仙台" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">2. 三仙台</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/路徒行旅花蓮" target="_blank" class="map-card stay-card">
-                        <div><p class="text-sm font-bold">3. 路徒行旅花蓮</p></div><span class="text-xs text-zinc-900 font-bold">STAY</span>
-                    </a>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 04 / Taitung - Hualien</p>
+                    <a href="https://www.google.com/maps/search/東河包子" target="_blank" class="map-card"><div><p class="text-sm font-bold">1. 東河包子</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/三仙台" target="_blank" class="map-card"><div><p class="text-sm font-bold">2. 三仙台</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/路徒行旅花蓮" target="_blank" class="map-card stay-card"><div><p class="text-sm font-bold">3. 路徒行旅花蓮</p></div><span class="text-xs text-zinc-900 font-bold italic">HOTEL</span></a>
                 </div>
-
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 05 / 花蓮 ➔ 台北</p>
-                    <a href="https://www.google.com/maps/search/清水斷崖" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">1. 清水斷崖</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/建華冰店" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">2. 建華冰店</p></div><span class="text-xs text-zinc-300">NAV ></span>
-                    </a>
-                    <a href="https://www.google.com/maps/search/財茂灣咖啡" target="_blank" class="map-card border-dashed">
-                        <div><p class="text-sm font-bold">3. 財茂灣咖啡</p></div><span class="text-xs text-zinc-400">END</span>
-                    </a>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 05 / Hualien - Taipei</p>
+                    <a href="https://www.google.com/maps/search/清水斷崖" target="_blank" class="map-card"><div><p class="text-sm font-bold">1. 清水斷崖</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/建華冰店" target="_blank" class="map-card"><div><p class="text-sm font-bold">2. 建華冰店</p></div><span class="text-xs text-zinc-300">NAV ></span></a>
+                    <a href="https://www.google.com/maps/search/財茂灣咖啡" target="_blank" class="map-card border-dashed"><div><p class="text-sm font-bold">3. 財茂灣咖啡</p></div><span class="text-xs text-zinc-400">FINISH</span></a>
                 </div>
             </div>
         </section>
 
         <section class="border-t border-zinc-100 pt-10">
-            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-8 text-center">02 / Checklist</h2>
-            <div class="space-y-4 text-sm">
-                <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>機油/胎壓/鏈條檢查</span></label>
-                <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>兩件式雨衣/防水手套</span></label>
-                <label class="flex items-center gap-3 border-b border-zinc-50 pb-3"><input type="checkbox" onchange="saveCheck()"><span>發熱衣/保暖層/頭巾</span></label>
-                <label class="flex items-center gap-3 border-b border-zinc-50 pb-3"><input type="checkbox" onchange="saveCheck()"><span>行車記錄器/備用鑰匙</span></label>
-                <label class="flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>身分證/駕照/行照</span></label>
+            <h2 class="text-lg font-black tracking-tighter mb-2">MASTER CHECKLIST</h2>
+            <p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-8">Data Auto-Saves to Browser</p>
+
+            <div class="space-y-12">
+                <div>
+                    <h3>Vehicle 01 / 車輛巡檢</h3>
+                    <div class="space-y-4 text-sm">
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>檢查機油量 & 副水箱水位</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>前後輪胎壓 & 胎紋深度確認</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>鏈條清潔、上油、鬆緊度調整</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>全車燈系（大燈/方向燈/煞車燈）</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>煞車皮厚度確認</span></label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Gear 02 / 騎士生存裝備</h3>
+                    <div class="space-y-4 text-sm">
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>兩件式雨衣（必帶，可防風）</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>發熱衣/褲 & 保暖魔術頭巾</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>備用夏季手套（西部熱時換）</span></label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Essentials 03 / 重要證件</h3>
+                    <div class="space-y-4 text-sm">
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>身分證 / 駕照 / 行照</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>機車保險卡（截圖亦可）</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>現金（東部部分加油站/小吃僅收現）</span></label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Tech 04 / 電子產品</h3>
+                    <div class="space-y-4 text-sm">
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>行車記錄器記憶卡格式化</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>行動電源 & 充足的充電線</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>藍牙耳機充電確認</span></label>
+                        <label class="flex items-center gap-3 pb-3 border-b border-zinc-50"><input type="checkbox" onchange="saveCheck()"><span>手機支架穩固性檢查</span></label>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="py-20 text-center bg-zinc-50">
-        <p class="text-[10px] tracking-[0.5em] text-zinc-300 font-bold uppercase">Safe Ride / 1,000 KM LOOP</p>
+    <footer class="py-20 text-center bg-zinc-50 mt-20">
+        <p class="text-[10px] tracking-[0.5em] text-zinc-300 font-bold uppercase">100% Ready / Safe Ride</p>
     </footer>
 
     <script>
         window.onload = function() {
-            const data = JSON.parse(localStorage.getItem('ride_loop_final_v1')) || [];
+            const data = JSON.parse(localStorage.getItem('ride_master_checklist')) || [];
             const inputs = document.querySelectorAll('input[type="checkbox"]');
             inputs.forEach((input, i) => {
                 if (data[i] !== undefined) input.checked = data[i];
@@ -144,7 +141,7 @@
         function saveCheck() {
             const inputs = document.querySelectorAll('input[type="checkbox"]');
             const data = Array.from(inputs).map(i => i.checked);
-            localStorage.setItem('ride_loop_final_v1', JSON.stringify(data));
+            localStorage.setItem('ride_master_checklist', JSON.stringify(data));
         }
     </script>
 </body>
