@@ -12,17 +12,11 @@
         input[type="checkbox"] { accent-color: #000; width: 1.2rem; height: 1.2rem; }
         input[type="checkbox"]:checked + span { color: #a1a1a1; text-decoration: line-through; }
         
-        /* 時間軸間隔設計 */
-        .timeline-step { position: relative; padding-left: 2rem; padding-bottom: 1.5rem; }
-        .timeline-step::before { 
-            content: ""; position: absolute; left: 0.45rem; top: 0.5rem; 
-            bottom: 0; width: 1px; border-left: 1px dashed #e4e4e7; 
-        }
-        .timeline-step:last-child::before { display: none; }
-        .dot { 
-            position: absolute; left: 0; top: 0.5rem; width: 1rem; height: 1rem; 
-            background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000;
-        }
+        /* 垂直時間軸樣式 */
+        .timeline-container { position: relative; padding-left: 1.5rem; }
+        .timeline-line { position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1px; border-left: 2px dashed #e4e4e7; }
+        .timeline-step { position: relative; padding-bottom: 2.5rem; }
+        .dot { position: absolute; left: -1.5rem; top: 0.4rem; width: 1rem; height: 1rem; background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000; z-index: 10; }
         .map-card { @apply block w-full border border-zinc-100 p-4 rounded-xl active:bg-zinc-50 transition-all flex justify-between items-center mt-2; }
     </style>
 </head>
@@ -30,100 +24,71 @@
 
     <header class="py-12 px-8 border-b border-zinc-100 mb-8">
         <div class="max-w-xl mx-auto">
-            <h1 class="text-3xl font-black tracking-tighter italic">THE <span class="text-zinc-300 underline">LOOP</span></h1>
-            <p class="text-[10px] tracking-[0.4em] text-zinc-400 font-bold uppercase mt-1">1.12 - 1.16 Full Navigation</p>
+            <h1 class="text-3xl font-black tracking-tighter uppercase italic">THE <span class="underline">LOOP</span></h1>
+            <p class="text-[10px] tracking-[0.4em] text-zinc-400 font-bold uppercase mt-1">Jan 12 - Jan 16 / Sequence Mode</p>
         </div>
     </header>
 
     <main class="max-w-xl mx-auto px-8 space-y-16">
 
-        <section class="bg-zinc-950 text-white p-6 rounded-3xl shadow-2xl">
-            <h2 class="text-[10px] font-black tracking-widest text-zinc-500 mb-4 uppercase">Accounting Console</h2>
+        <section class="bg-zinc-950 text-white p-6 rounded-3xl shadow-xl">
+            <h2 class="text-[10px] font-black tracking-widest text-zinc-500 mb-4 uppercase">Expense Tracker</h2>
             <div class="grid grid-cols-2 gap-3">
-                <a href="你的Google表單網址" target="_blank" class="bg-white text-black text-center py-4 rounded-xl font-bold text-sm active:scale-95 transition-transform">➕ 記一筆</a>
-                <a href="你的試算表網址" target="_blank" class="border border-zinc-700 text-zinc-400 text-center py-4 rounded-xl text-sm active:bg-zinc-800">📊 查帳本</a>
+                <a href="你的表單連結" target="_blank" class="bg-white text-black text-center py-4 rounded-xl font-bold text-sm active:scale-95 transition-transform">➕ 記帳</a>
+                <a href="你的試算表連結" target="_blank" class="border border-zinc-700 text-zinc-400 text-center py-4 rounded-xl text-sm active:bg-zinc-800">📊 結算</a>
             </div>
         </section>
 
         <section>
-            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-8">01 / Sequential Route</h2>
+            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-10">01 / Navigation Timeline</h2>
             
-            <div class="mb-10">
-                <p class="text-[10px] font-black text-zinc-400 mb-4 tracking-widest">DAY 01 / TAIPEI - TAICHUNG</p>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <span class="text-[10px] font-bold text-zinc-400">01 START</span>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 01 / Taipei ➔ Taichung</p>
                     <a href="https://www.google.com/maps/search/汶水老街" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">汶水老街</p><p class="text-[10px] text-zinc-400">台3線休息點</p></div>
-                        <span class="text-xs text-zinc-300">GO ></span>
+                        <div><p class="text-sm font-bold">1. 汶水老街</p><p class="text-[10px] text-zinc-400">台3線中繼站</p></div>
+                        <span class="text-xs text-zinc-300">NAV ></span>
                     </a>
-                </div>
-                <div class="timeline-step">
-                    <div class="dot"></div>
-                    <span class="text-[10px] font-bold text-zinc-400">02 PHOTO</span>
                     <a href="https://www.google.com/maps/search/龍騰斷橋" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">龍騰斷橋</p><p class="text-[10px] text-zinc-400">經典拍照點</p></div>
-                        <span class="text-xs text-zinc-300">GO ></span>
+                        <div><p class="text-sm font-bold">2. 龍騰斷橋</p><p class="text-[10px] text-zinc-400">景點拍照</p></div>
+                        <span class="text-xs text-zinc-300">NAV ></span>
+                    </a>
+                    <a href="https://www.google.com/maps/search/拓程商旅" target="_blank" class="map-card border-black">
+                        <div><p class="text-sm font-bold">3. 拓程商旅</p><p class="text-[10px] text-zinc-900 font-bold italic underline">台中住宿</p></div>
+                        <span class="text-xs text-zinc-900">STAY</span>
                     </a>
                 </div>
-                <div class="timeline-step">
-                    <div class="dot"></div>
-                    <span class="text-[10px] font-bold text-zinc-400">03 HOTEL</span>
-                    <a href="https://www.google.com/maps/search/拓程商旅" target="_blank" class="map-card border-zinc-900 shadow-sm">
-                        <div><p class="text-sm font-bold">拓程商旅</p><p class="text-[10px] text-zinc-400">台中住宿</p></div>
-                        <span class="text-xs text-zinc-900 font-bold">STAY</span>
-                    </a>
-                </div>
-            </div>
 
-            <div class="mb-10">
-                <p class="text-[10px] font-black text-zinc-400 mb-4 tracking-widest">DAY 02 / TAICHUNG - KAOHSIUNG</p>
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <span class="text-[10px] font-bold text-zinc-400">01 FOOD</span>
+                    <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 02 / Taichung ➔ Kaohsiung</p>
                     <a href="https://www.google.com/maps/search/阿宏師火雞肉飯" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">嘉義阿宏師</p><p class="text-[10px] text-zinc-400">中途午餐</p></div>
-                        <span class="text-xs text-zinc-300">GO ></span>
+                        <div><p class="text-sm font-bold">1. 嘉義阿宏師</p><p class="text-[10px] text-zinc-400">午餐必吃</p></div>
+                        <span class="text-xs text-zinc-300">NAV ></span>
                     </a>
-                </div>
-                <div class="timeline-step">
-                    <div class="dot"></div>
-                    <span class="text-[10px] font-bold text-zinc-400">02 DRINK</span>
                     <a href="https://www.google.com/maps/search/甜又鮮" target="_blank" class="map-card">
-                        <div><p class="text-sm font-bold">台南甜又鮮</p><p class="text-[10px] text-zinc-400">推薦噴射梅子綠</p></div>
-                        <span class="text-xs text-zinc-300">GO ></span>
+                        <div><p class="text-sm font-bold">2. 台南甜又鮮</p><p class="text-[10px] text-zinc-400">噴射梅子綠</p></div>
+                        <span class="text-xs text-zinc-300">NAV ></span>
+                    </a>
+                    <a href="https://www.google.com/maps/search/佑煦行旅" target="_blank" class="map-card border-black">
+                        <div><p class="text-sm font-bold">3. 佑煦行旅</p><p class="text-[10px] text-zinc-900 font-bold italic underline">高雄住宿</p></div>
+                        <span class="text-xs text-zinc-900">STAY</span>
                     </a>
                 </div>
-                <div class="timeline-step">
-                    <div class="dot"></div>
-                    <span class="text-[10px] font-bold text-zinc-400">03 HOTEL</span>
-                    <a href="https://www.google.com/maps/search/佑煦行旅" target="_blank" class="map-card border-zinc-900 shadow-sm">
-                        <div><p class="text-sm font-bold">佑煦行旅</p><p class="text-[10px] text-zinc-400">高雄住宿</p></div>
-                        <span class="text-xs text-zinc-900 font-bold">STAY</span>
-                    </a>
-                </div>
-            </div>
 
-            <p class="text-[10px] text-zinc-300 italic text-center py-4">後續行程依序排入...</p>
+                </div>
         </section>
 
         <section>
-            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-6">02 / Master Checklist</h2>
+            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-300 uppercase mb-8">02 / Master Checklist</h2>
             <div class="space-y-4 text-sm">
                 <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>鏈條上油 & 胎壓檢查</span></label>
-                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>兩件式雨衣 & 防水手套</span></label>
-                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>發熱衣褲 & 保暖層</span></label>
-                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>行車記錄器確認 & 備用鑰匙</span></label>
-                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>駕照、行照、保險卡</span></label>
-            </div>
-        </section>
-
-        <section class="bg-zinc-50 p-6 rounded-2xl border border-zinc-100">
-            <h2 class="text-[10px] font-black tracking-[0.3em] text-zinc-400 uppercase mb-4">Survival Note</h2>
-            <div class="text-xs text-zinc-500 space-y-3 leading-relaxed">
-                <p><strong>1. 南迴側風：</strong> 下午過後風力增強，注意重心，切勿與強風對抗。</p>
-                <p><strong>2. 白牌路線：</strong> 第五天回程導航設定需避開國道/快速道路，務必確認進入台9丁。</p>
-                <p><strong>3. 手部保暖：</strong> 即使沒下雨，長時間高速吹風也會凍傷，記得適時休息。</p>
+                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>兩件式雨衣 & 防水鞋套</span></label>
+                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>發熱衣褲 & 保暖頭巾</span></label>
+                <label class="checklist-item flex items-center gap-3 pb-3"><input type="checkbox" onchange="saveCheck()"><span>備用鑰匙互換 & 證件確認</span></label>
             </div>
         </section>
 
@@ -131,14 +96,14 @@
 
     <script>
         window.onload = function() {
-            const data = JSON.parse(localStorage.getItem('trip_v2')) || [];
+            const data = JSON.parse(localStorage.getItem('loop_v3')) || [];
             const inputs = document.querySelectorAll('input[type="checkbox"]');
             inputs.forEach((input, i) => input.checked = data[i] || false);
         };
         function saveCheck() {
             const inputs = document.querySelectorAll('input[type="checkbox"]');
             const data = Array.from(inputs).map(i => i.checked);
-            localStorage.setItem('trip_v2', JSON.stringify(data));
+            localStorage.setItem('loop_v3', JSON.stringify(data));
         }
     </script>
 </body>
