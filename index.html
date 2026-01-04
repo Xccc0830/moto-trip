@@ -7,174 +7,160 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #ffffff; color: #1a1a1a; font-family: 'Inter', 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; font-size: 18px; line-height: 1.4; }
-        input[type="checkbox"] { accent-color: #000; width: 1.5rem; height: 1.5rem; min-width: 1.5rem; }
+        body { background-color: #ffffff; color: #1a1a1a; font-family: 'Inter', 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; font-size: 20px; line-height: 1.4; }
+        input[type="checkbox"] { accent-color: #000; width: 1.6rem; height: 1.6rem; min-width: 1.6rem; }
         input[type="checkbox"]:checked + span { color: #a1a1a1; text-decoration: line-through; }
         .timeline-container { position: relative; padding-left: 1.5rem; }
         .timeline-line { position: absolute; left: 10px; top: 14px; bottom: 14px; width: 1px; border-left: 2px dashed #e4e4e7; }
-        .timeline-step { position: relative; padding-bottom: 2rem; }
-        .dot { position: absolute; left: -1.9rem; top: 0.6rem; width: 1.1rem; height: 1.1rem; background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000; z-index: 10; }
+        .timeline-step { position: relative; padding-bottom: 2.5rem; }
+        .dot { position: absolute; left: -2rem; top: 0.4rem; width: 1.2rem; height: 1.2rem; background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000; z-index: 10; }
         
-        /* 核心修正：Flex 佈局確保按鈕與文字並存 */
+        /* 單純化卡片樣式 */
         .map-card {
             display: flex;
             width: 100%;
-            padding: 1rem;
+            padding: 1.25rem 1rem;
             border-radius: 1rem;
             justify-content: space-between;
             align-items: center;
             margin-top: 0.75rem;
             background: #ffffff;
             border: 1px solid #f3f3f3;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             text-decoration: none;
             color: inherit;
+            transition: all 0.1s ease;
         }
-        .card-content { flex: 1; min-width: 0; padding-right: 8px; }
-        .card-title { font-size: 1.2rem; font-weight: 800; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-meta { font-size: 0.85rem; color: #6b6b6b; }
-        .stay-card { border: 2px solid #000 !important; background: #fafafa; }
-        
-        /* 醒目的 Agoda 按鈕 */
-        .agoda-btn {
-            background-color: #003580;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 900;
-            padding: 0.6rem 0.8rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .agoda-btn::before { content: '🏨'; font-size: 10px; }
+        .map-card:active { transform: scale(0.98); background-color: #f9f9f9; }
+        .title { font-size: 1.4rem; font-weight: 800; color: #0f172a; }
+        .meta { font-size: 1rem; color: #94a3b8; font-weight: bold; }
+        .stay-card { border: 2px solid #000 !important; }
 
-        .checklist-item { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid #f3f3f3; }
-        h3 { font-size: 0.9rem; font-weight:900; color:#9ca3af; letter-spacing: 0.1em; margin-top: 2rem; margin-bottom: 0.5rem; text-transform:uppercase; }
+        .checklist-item { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid #f3f3f3; cursor: pointer; }
+        h3 { font-size: 1rem; font-weight:900; color:#64748b; letter-spacing: 0.1em; margin-top: 2rem; margin-bottom: 0.5rem; text-transform:uppercase; }
     </style>
 </head>
 <body class="pb-32">
 
-    <header class="py-10 px-8 border-b border-zinc-100 mb-8 text-center">
-        <h1 class="text-3xl font-black tracking-tighter italic">THE <span class="underline">LOOP</span></h1>
-        <p class="text-sm tracking-[0.3em] text-zinc-400 font-bold mt-1 uppercase">Jan 12 - Jan 16 / 2026</p>
+    <header class="py-12 px-8 border-b border-zinc-100 mb-8 text-center">
+        <h1 class="text-4xl font-black tracking-tighter italic">THE <span class="underline">LOOP</span></h1>
+        <p class="text-sm tracking-[0.4em] text-zinc-400 font-bold mt-2 uppercase">Jan 12 - Jan 16 / 2026</p>
     </header>
 
     <main class="max-w-xl mx-auto px-6">
 
-        <section class="bg-zinc-950 text-white p-6 rounded-3xl shadow-xl mb-12">
+        <section class="bg-zinc-950 text-white p-6 rounded-3xl shadow-xl mb-16">
             <div class="grid grid-cols-2 gap-4">
-                <a href="https://forms.gle/Sxj9ezWdpUAhSJKt6" target="_blank" class="bg-white text-black font-bold py-4 rounded-xl text-center text-lg active:scale-95">➕ 記帳</a>
-                <a href="https://docs.google.com/spreadsheets/d/1aC7P5AMrlJDDyHA8Q3r26nRu6PUWkroCHIeJFFb8D9I/edit?usp=sharing" target="_blank" class="border border-zinc-700 text-zinc-400 py-4 rounded-xl text-center text-lg">📊 查帳</a>
+                <a href="https://forms.gle/Sxj9ezWdpUAhSJKt6" target="_blank" class="bg-white text-black font-bold py-4 rounded-xl text-center text-xl active:scale-95">➕ 記帳</a>
+                <a href="https://docs.google.com/spreadsheets/d/1aC7P5AMrlJDDyHA8Q3r26nRu6PUWkroCHIeJFFb8D9I/edit?usp=sharing" target="_blank" class="border border-zinc-700 text-zinc-400 py-4 rounded-xl text-center text-xl">📊 查帳</a>
             </div>
         </section>
 
-        <section class="mb-16">
+        <section class="mb-20">
             <div class="timeline-container">
                 <div class="timeline-line"></div>
 
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase">Day 01 / Taipei - Taichung</p>
+                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase mb-2">Day 01 / Taipei - Taichung</p>
                     <a href="https://www.google.com/maps/search/?api=1&query=汶水老街" target="_blank" class="map-card">
-                        <div class="card-content"><p class="card-title">1. 汶水老街</p><p class="card-meta">老街小吃</p></div>
-                        <span class="text-zinc-300 font-bold text-sm">NAV ></span>
+                        <span class="title">1. 汶水老街</span><span class="meta">NAV ></span>
                     </a>
-                    <div class="map-card stay-card">
-                        <a href="https://www.google.com/maps/search/?api=1&query=台中拓程商旅" target="_blank" class="card-content">
-                            <p class="card-title text-black">2. 拓程商旅</p><p class="card-meta">台中市西屯區</p>
-                        </a>
-                        <a href="https://www.agoda.com/zh-tw/the-galerie-hotel_4/hotel/taichung-tw.html" target="_blank" class="agoda-btn">AGODA</a>
-                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=龍騰斷橋" target="_blank" class="map-card">
+                        <span class="title">2. 龍騰斷橋</span><span class="meta">NAV ></span>
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=拓程商旅" target="_blank" class="map-card stay-card">
+                        <span class="title">3. 拓程商旅</span><span class="meta">STAY ></span>
+                    </a>
                 </div>
 
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase">Day 02 / Taichung - Kaohsiung</p>
+                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase mb-2">Day 02 / Taichung - Kaohsiung</p>
                     <a href="https://www.google.com/maps/search/?api=1&query=阿宏師火雞肉飯" target="_blank" class="map-card">
-                        <div class="card-content"><p class="card-title">1. 阿宏師火雞肉飯</p></div>
-                        <span class="text-zinc-300 font-bold text-sm">NAV ></span>
+                        <span class="title">1. 阿宏師火雞肉飯</span><span class="meta">NAV ></span>
                     </a>
-                    <div class="map-card stay-card">
-                        <a href="https://www.google.com/maps/search/?api=1&query=佑煦行旅" target="_blank" class="card-content">
-                            <p class="card-title text-black">2. 佑煦行旅</p><p class="card-meta">高雄市鹽埕區</p>
-                        </a>
-                        <a href="https://www.agoda.com/zh-tw/golden-pacific-hotel/hotel/kaohsiung-tw.html" target="_blank" class="agoda-btn">AGODA</a>
-                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=文章牛肉湯" target="_blank" class="map-card">
+                        <span class="title">2. 文章牛肉湯</span><span class="meta">NAV ></span>
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=佑煦行旅" target="_blank" class="map-card stay-card">
+                        <span class="title">3. 佑煦行旅</span><span class="meta">STAY ></span>
+                    </a>
                 </div>
 
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase">Day 03 / Kaohsiung - Taitung</p>
+                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase mb-2">Day 03 / Kaohsiung - Taitung</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=小杜包子" target="_blank" class="map-card">
+                        <span class="title">1. 小杜包子</span><span class="meta">NAV ></span>
+                    </a>
                     <a href="https://www.google.com/maps/search/?api=1&query=多良車站" target="_blank" class="map-card">
-                        <div class="card-content"><p class="card-title">1. 多良車站</p></div>
-                        <span class="text-zinc-300 font-bold text-sm">NAV ></span>
+                        <span class="title">2. 多良車站</span><span class="meta">NAV ></span>
                     </a>
-                    <div class="map-card stay-card">
-                        <a href="https://www.google.com/maps/search/?api=1&query=台東嶼光智能入住旅宿" target="_blank" class="card-content">
-                            <p class="card-title text-black">2. 嶼光智能旅宿</p><p class="card-meta">台東市安和路</p>
-                        </a>
-                        <a href="https://www.agoda.com/zh-tw/h-yu-krung-style-inn/hotel/taitung-tw.html" target="_blank" class="agoda-btn">AGODA</a>
-                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=嶼光智能旅宿" target="_blank" class="map-card stay-card">
+                        <span class="title">3. 嶼光智能旅宿</span><span class="meta">STAY ></span>
+                    </a>
                 </div>
 
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase">Day 04 / Taitung - Hualien</p>
+                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase mb-2">Day 04 / Taitung - Hualien</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=東河包子" target="_blank" class="map-card">
+                        <span class="title">1. 東河包子</span><span class="meta">NAV ></span>
+                    </a>
                     <a href="https://www.google.com/maps/search/?api=1&query=三仙台" target="_blank" class="map-card">
-                        <div class="card-content"><p class="card-title">1. 三仙台</p></div>
-                        <span class="text-zinc-300 font-bold text-sm">NAV ></span>
+                        <span class="title">2. 三仙台</span><span class="meta">NAV ></span>
                     </a>
-                    <div class="map-card stay-card">
-                        <a href="https://www.google.com/maps/search/?api=1&query=路徒行旅花蓮東大館" target="_blank" class="card-content">
-                            <p class="card-title text-black">2. 路徒行旅</p><p class="card-meta">花蓮市光復街</p>
-                        </a>
-                        <a href="https://www.agoda.com/zh-tw/roaders-hotel-hualien-dongda-gate/hotel/hualien-tw.html" target="_blank" class="agoda-btn">AGODA</a>
-                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=路徒行旅花蓮東大門館" target="_blank" class="map-card stay-card">
+                        <span class="title">3. 路徒行旅</span><span class="meta">STAY ></span>
+                    </a>
                 </div>
 
                 <div class="timeline-step">
                     <div class="dot"></div>
-                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase">Day 05 / Hualien - Taipei</p>
+                    <p class="text-xs font-black text-zinc-400 tracking-widest uppercase mb-2">Day 05 / Hualien - Taipei</p>
                     <a href="https://www.google.com/maps/search/?api=1&query=清水斷崖" target="_blank" class="map-card">
-                        <div class="card-content"><p class="card-title">1. 清水斷崖</p></div>
-                        <span class="text-zinc-300 font-bold text-sm">NAV ></span>
+                        <span class="title">1. 清水斷崖</span><span class="meta">NAV ></span>
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=建華冰店" target="_blank" class="map-card">
+                        <span class="title">2. 建華冰店</span><span class="meta">NAV ></span>
                     </a>
                     <a href="https://www.google.com/maps/search/?api=1&query=財茂灣咖啡" target="_blank" class="map-card border-dashed">
-                        <div class="card-content"><p class="card-title">2. 財茂灣咖啡</p></div>
-                        <span class="text-zinc-400 font-bold text-sm">FINISH</span>
+                        <span class="title">3. 財茂灣咖啡</span><span class="meta">FINISH</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <section class="border-t border-zinc-100 pt-10">
-            <h2 class="text-xl font-black italic mb-2 tracking-tighter">CHECKLIST</h2>
-            <div class="space-y-8">
-                <div>
-                    <h3>Vehicle / 車輛巡檢</h3>
-                    <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>機油量 & 副水箱水位</span></label>
-                    <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>胎壓 & 胎紋深度確認</span></label>
-                    <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>鏈條清潔 & 上油</span></label>
-                </div>
+            <h2 class="text-2xl font-black italic mb-2 tracking-tighter">CHECKLIST</h2>
+            <div class="space-y-4">
+                <h3>Vehicle / 車輛巡檢</h3>
+                <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>檢查機油量 & 副水箱水位</span></label>
+                <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>胎壓 & 胎紋深度確認</span></label>
+                <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>鏈條清潔 & 上油調整</span></label>
+                
+                <h3>Gear / 裝備 & 證件</h3>
+                <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>兩件式雨衣 & 防水鞋套</span></label>
+                <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>備用鑰匙 & 證件正本</span></label>
+                <label class="checklist-item"><input type="checkbox" onchange="saveCheck()"><span>行動電源 & 充電線材</span></label>
             </div>
         </section>
+
     </main>
 
-    <footer class="py-20 text-center text-zinc-300 text-xs tracking-widest font-bold">SAFE RIDE / NO REGRETS</footer>
+    <footer class="py-20 text-center text-zinc-300 text-sm tracking-[0.5em] font-bold">SAFE RIDE / NO REGRETS</footer>
 
     <script>
         window.onload = function() {
-            const data = JSON.parse(localStorage.getItem('moto_v5_final')) || [];
+            const data = JSON.parse(localStorage.getItem('moto_final_v1')) || [];
             const inputs = document.querySelectorAll('input[type="checkbox"]');
             inputs.forEach((input, i) => { if (data[i] !== undefined) input.checked = data[i]; });
         };
         function saveCheck() {
             const inputs = document.querySelectorAll('input[type="checkbox"]');
             const data = Array.from(inputs).map(i => i.checked);
-            localStorage.setItem('moto_v5_final', JSON.stringify(data));
+            localStorage.setItem('moto_final_v1', JSON.stringify(data));
         }
     </script>
 </body>
