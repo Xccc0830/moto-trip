@@ -13,7 +13,7 @@
             color: #1a1a1a;
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
             -webkit-tap-highlight-color: transparent;
-            font-size: 18px; /* 提高預設字級 */
+            font-size: 20px; /* 提高預設字級（較大）*/
             line-height: 1.4;
         }
 
@@ -32,34 +32,40 @@
 
         /* 調整時間軸與點標 */
         .timeline-container { position: relative; padding-left: 1.5rem; }
-        .timeline-line { position: absolute; left: 7px; top: 10px; bottom: 10px; width: 1px; border-left: 2px dashed #e4e4e7; }
+        .timeline-line { position: absolute; left: 10px; top: 14px; bottom: 14px; width: 1px; border-left: 2px dashed #e4e4e7; }
         .timeline-step { position: relative; padding-bottom: 2.5rem; }
-        .dot { position: absolute; left: -1.5rem; top: 0.4rem; width: 1rem; height: 1rem; background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000; z-index: 10; }
+        .dot { position: absolute; left: -2rem; top: 0.4rem; width: 1.2rem; height: 1.2rem; background: #000; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #000; z-index: 10; }
 
-        /* 卡片與停留地標更大、更易點 */
+        /* 卡片 -> 按鈕樣式（景點變成按鈕樣子） */
         .map-card {
-            display: block;
+            display: flex;
             width: 100%;
-            border: 1px solid #f1f1f1;
-            padding: 1rem 1rem; /* 增加內距 */
+            border: none;
+            padding: 1.25rem 1rem; /* 增加內距，讓按鈕更大 */
             border-radius: 1rem;
-            transition: all .12s ease;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-top: 0.5rem;
-            background: #fff;
+            transition: transform .12s ease, box-shadow .12s ease;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.75rem;
+            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+            box-shadow: 0 8px 20px rgba(2,6,23,0.06);
             text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
-        .map-card:hover { transform: translateY(-2px); }
-        .map-card .title { font-size: 1.125rem; /* 約 18px+ */ font-weight: 700; color: #0f172a; }
-        .map-card .meta { font-size: 0.95rem; color: #6b6b6b; }
+        .map-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(2,6,23,0.08); }
+        .map-card:active { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(2,6,23,0.06); }
 
-        /* stay-card 保留加粗邊框 */
-        .stay-card { border: 2px solid #000 !important; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        /* 景點標題與 meta 字體放大 */
+        .map-card .title { font-size: 1.75rem; /* 大標題 */ font-weight: 800; color: #0f172a; }
+        .map-card .meta { font-size: 1.125rem; color: #6b6b6b; margin-left: 0.75rem; white-space: nowrap; }
+
+        /* stay-card 保留加粗邊框（住宿顯眼） */
+        .stay-card { border: 2px solid #000 !important; box-shadow: 0 6px 18px -2px rgb(0 0 0 / 0.12); }
 
         /* 標題小字調整 */
-        h3 { font-size: 0.875rem; font-weight:900; letter-spacing: .08em; color:#6b6b6b; margin-bottom:1rem; margin-top:2rem; text-transform:uppercase; }
+        h3 { font-size: 1.125rem; font-weight:900; letter-spacing: .08em; color:#6b6b6b; margin-bottom:1rem; margin-top:2rem; text-transform:uppercase; }
 
         /* 調整清單文字，使點擊區域更大 */
         .space-y-4.text-sm label {
@@ -71,31 +77,33 @@
             cursor: pointer;
         }
         .space-y-4.text-sm label span {
-            font-size: 1rem; /* 約 16-18px */
+            font-size: 1.125rem; /* 加大清單文字 */
             line-height: 1.3;
         }
 
         /* 按鈕/連結增大 */
         .grid .btn-large {
-            padding: 0.9rem 0.75rem;
-            font-size: 1rem;
-            border-radius: 0.75rem;
+            padding: 0.95rem 0.9rem;
+            font-size: 1.125rem;
+            border-radius: 0.9rem;
             display: inline-block;
             text-align: center;
             text-decoration: none;
         }
 
         /* header 調整 */
-        header .text-3xl { font-size: 1.75rem; } /* 約 28px */
-        header .text-[10px] { font-size: 0.875rem; }
+        header .text-3xl { font-size: 2.25rem; } /* 主標更大 */
+        header .text-[10px] { font-size: 1rem; }
 
         /* footer 字體 */
-        footer p { font-size: 0.95rem; }
+        footer p { font-size: 1.125rem; }
 
         /* 小螢幕微調（確保不會太大造成擠壓） */
         @media (max-width: 420px) {
-            body { font-size: 17px; }
-            .map-card { padding: 0.85rem; }
+            body { font-size: 18px; }
+            .map-card { padding: 1rem; }
+            .map-card .title { font-size: 1.4rem; }
+            .map-card .meta { font-size: 1rem; }
             input[type="checkbox"] { width: 1.5rem; height: 1.5rem; }
         }
     </style>
@@ -113,7 +121,7 @@
             <h2 class="text-[10px] font-black tracking-widest text-zinc-500 mb-4 uppercase text-center">Cloud Expense Tracker</h2>
             <div class="grid grid-cols-2 gap-3">
                 <a href="https://forms.gle/Sxj9ezWdpUAhSJKt6" target="_blank" class="btn-large bg-white text-black font-bold">➕ 記帳</a>
-                <a href="https://docs.google.com/spreadsheets/d/1aC7P5AMrlJDDyHA8Q3r26nRu6PUWkroCHIeJFFb8D9I/edit?usp=sharing" target="_blank" class="btn-large border border-zinc-700 text-zinc-400">表單總表</a>
+                <a href="https://docs.google.com/spreadsheets/d/1aC7P5AMrlJDDyHA8Q3r26nRu6PUWkroCHIeJFFb8D9I/edit?usp=sharing" target="_blank" class="btn-large border border-zinc-700 text-zinc-400">��[...]
             </div>
         </section>
 
@@ -124,37 +132,37 @@
                 <div class="timeline-step">
                     <div class="dot"></div>
                     <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 01 / Taipei - Taichung</p>
-                    <a href="https://www.google.com/maps/search/汶水老街" target="_blank" class="map-card"><div><p class="title">1. 汶水老街</p></div><span class="meta">在地老街小吃</span></a>
-                    <a href="https://www.google.com/maps/search/龍騰斷橋" target="_blank" class="map-card"><div><p class="title">2. 龍騰斷橋</p></div><span class="meta">打卡景點</span></a>
-                    <a href="https://www.google.com/maps/search/拓程商旅" target="_blank" class="map-card stay-card"><div><p class="title">3. 拓程商旅</p></div><span class="meta">住宿</span></a>
+                    <a href="https://www.google.com/maps/search/汶水老街" target="_blank" class="map-card"><div><p class="title">1. 汶水老街</p></div><span class="meta">在地老街小吃</spa[...]
+                    <a href="https://www.google.com/maps/search/龍騰斷橋" target="_blank" class="map-card"><div><p class="title">2. 龍騰斷橋</p></div><span class="meta">打卡景點</span></a>[...]
+                    <a href="https://www.google.com/maps/search/拓程商旅" target="_blank" class="map-card stay-card"><div><p class="title">3. 拓程商旅</p></div><span class="meta">住宿</span>[...]
                 </div>
                 <div class="timeline-step">
                     <div class="dot"></div>
                     <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 02 / Taichung - Kaohsiung</p>
-                    <a href="https://www.google.com/maps/search/嘉義阿宏師火雞肉飯" target="_blank" class="map-card"><div><p class="title">1. 阿宏師火雞肉飯</p></div><span class="meta">在地小吃</span></a>
-                    <a href="https://www.google.com/maps/search/文章牛肉湯" target="_blank" class="map-card"><div><p class="title">2. 文章牛肉湯</p></div><span class="meta">湯品推薦</span></a>
-                    <a href="https://www.google.com/maps/search/佑煦行旅" target="_blank" class="map-card stay-card"><div><p class="title">3. 佑煦行旅</p></div><span class="meta">住宿</span></a>
+                    <a href="https://www.google.com/maps/search/嘉義阿宏師火雞肉飯" target="_blank" class="map-card"><div><p class="title">1. 阿宏師火雞肉飯</p></div><span class="meta"[...]
+                    <a href="https://www.google.com/maps/search/文章牛肉湯" target="_blank" class="map-card"><div><p class="title">2. 文章牛肉湯</p></div><span class="meta">湯品推薦</spa[...]
+                    <a href="https://www.google.com/maps/search/佑煦行旅" target="_blank" class="map-card stay-card"><div><p class="title">3. 佑煦行旅</p></div><span class="meta">住宿</span>[...]
                 </div>
                 <div class="timeline-step">
                     <div class="dot"></div>
                     <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 03 / Kaohsiung - Taitung</p>
-                    <a href="https://www.google.com/maps/search/小杜包子" target="_blank" class="map-card"><div><p class="title">1. 小杜包子</p></div><span class="meta">早餐小吃</span></a>
-                    <a href="https://www.google.com/maps/search/多良車站" target="_blank" class="map-card"><div><p class="title">2. 多良車站</p></div><span class="meta">沿海景觀</span></a>
-                    <a href="https://www.google.com/maps/search/嶼光智能旅宿" target="_blank" class="map-card stay-card"><div><p class="title">3. 嶼光智能旅宿</p></div><span class="meta">住宿</span></a>
+                    <a href="https://www.google.com/maps/search/小杜包子" target="_blank" class="map-card"><div><p class="title">1. 小杜包子</p></div><span class="meta">早餐小吃</span></a>[...]
+                    <a href="https://www.google.com/maps/search/多良車站" target="_blank" class="map-card"><div><p class="title">2. 多良車站</p></div><span class="meta">沿海景觀</span></a>[...]
+                    <a href="https://www.google.com/maps/search/嶼光智能旅宿" target="_blank" class="map-card stay-card"><div><p class="title">3. 嶼光智能旅宿</p></div><span class="meta">�[...]
                 </div>
                 <div class="timeline-step">
                     <div class="dot"></div>
                     <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 04 / Taitung - Hualien</p>
-                    <a href="https://www.google.com/maps/search/東河包子" target="_blank" class="map-card"><div><p class="title">1. 東河包子</p></div><span class="meta">在地小吃</span></a>
+                    <a href="https://www.google.com/maps/search/東河包子" target="_blank" class="map-card"><div><p class="title">1. 東河包子</p></div><span class="meta">在地小吃</span></a>[...]
                     <a href="https://www.google.com/maps/search/三仙台" target="_blank" class="map-card"><div><p class="title">2. 三仙台</p></div><span class="meta">景點</span></a>
-                    <a href="https://www.google.com/maps/search/路徒行旅花蓮" target="_blank" class="map-card stay-card"><div><p class="title">3. 路徒行旅花蓮</p></div><span class="meta">住宿</span></a>
+                    <a href="https://www.google.com/maps/search/路徒行旅花蓮" target="_blank" class="map-card stay-card"><div><p class="title">3. 路徒行旅花蓮</p></div><span class="meta">�[...]
                 </div>
                 <div class="timeline-step">
                     <div class="dot"></div>
                     <p class="text-[10px] font-black text-zinc-400 tracking-widest uppercase mb-2">Day 05 / Hualien - Taipei</p>
                     <a href="https://www.google.com/maps/search/清水斷崖" target="_blank" class="map-card"><div><p class="title">1. 清水斷崖</p></div><span class="meta">景點</span></a>
                     <a href="https://www.google.com/maps/search/建華冰店" target="_blank" class="map-card"><div><p class="title">2. 建華冰店</p></div><span class="meta">小吃</span></a>
-                    <a href="https://www.google.com/maps/search/財茂灣咖啡" target="_blank" class="map-card border-dashed"><div><p class="title">3. 財茂灣咖啡</p></div><span class="meta">咖啡店</span></a>
+                    <a href="https://www.google.com/maps/search/財茂灣咖啡" target="_blank" class="map-card border-dashed"><div><p class="title">3. 財茂灣咖啡</p></div><span class="meta">咖[...]
                 </div>
             </div>
         </section>
@@ -227,3 +235,4 @@
     </script>
 </body>
 </html>
+```
